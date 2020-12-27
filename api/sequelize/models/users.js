@@ -22,8 +22,8 @@ module.exports = (sequelize, DataTypes) => {
         const salt = bcrypt.genSalt(10)
         const hash = bcrypt.hashSync(val,salt)
         this.setDataValue("password",hash)
-      }      
-    }
+      }
+    }    
   }, {
     sequelize,
     modelName: 'users',

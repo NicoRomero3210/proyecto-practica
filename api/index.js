@@ -26,13 +26,15 @@ const PORT = process.env.PORT
 // })
 
 //middlewares
-app.use(cors())
+app.use(cors({
+    origin:['http://localhost:3000'],
+}))
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(passport.initialize())
 
 //rutas
-app.use('/api/usuarios/registrarse',require('./routes/user'))
+app.use('/api/usuarios',require('./routes/user'))
 
 app.listen(PORT,()=>{console.log('Escuchando el puerto '+PORT)})
